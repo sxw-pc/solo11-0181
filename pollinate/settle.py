@@ -1,34 +1,20 @@
+from .common import rows,latest,proof,placement_hours
 from pathlib import Path
-COMMAND='settle'
-KINDS=['contract', 'settlement', 'incident']
+COMMAND='settle';KINDS=['contract','settlement','incident']
+NORMAL=str(Path(__file__).resolve().parent.parent/'fixtures/settle_ok.json')
 FAILURE='fixtures/settle_dispute.json'
-NORMAL=str(Path(__file__).resolve().parent.parent / 'fixtures/settle_ok.json')
-
-def allof(events,kind): return [e for e in events if e["kind"]==kind]
-def latest(events,kind):
-    rows=allof(events,kind)
-    return max(rows,key=lambda e:(e["event_time"],e["received_at"],e["id"])) if rows else None
-
 def decide(ev):
-    result=[]
-    now=max([e["event_time"] for e in ev],default=0)
-    def out(name,value,proof):
-        sources=[x["id"] for x in proof if x]
-        result.append((name,value,sources if sources else [x["id"] for x in ev]))
-    h=latest(ev,'health_check')
-    status='放行' if h and h['data'].get('healthy') and h['event_time']<=now else '拒绝'
-    placements=allof(ev,'placement')
-    hours=sum(max(0,int(x['data'].get('end',now))-int(x['data'].get('start',now))) for x in placements if x['data'].get('end',now)>=x['data'].get('start',now))
-    replacements=[x for x in placements if x['data'].get('replacement')]
-    valid=len({x['data'].get('replaces') for x in replacements})==len(replacements)
-    dead=[x for x in allof(ev,'health_check') if x['data'].get('dead')]
-    sprays=allof(ev,'spray_notice')
-    blooms=allof(ev,'bloom_observation')
-    b=latest(ev,'bloom_observation')
-    sprays=allof(ev,'spray_notice')
-    orchard=latest(ev,'orchard')
-    eligible=hours if status=='放行' and b and not any(x['data'].get('delivered') for x in sprays) else 0
-    contract=latest(ev,'contract'); minimum=int(contract['data'].get('min_hours',0)) if contract else 0; fee=int(contract['data'].get('fee',0)) if contract else 0; out('合同最低覆盖结算',fee if contract and eligible>=minimum else 0,[contract]+placements+[h,b]+sprays)
-    incident=latest(ev,'incident'); out('事故赔付责任裁定','果园方' if incident and sprays and any(x['data'].get('delivered') for x in sprays) else '待调查' if incident else '无事故',[incident]+sprays)
-    settlements=allof(ev,'settlement'); frozen=sum(int(x['data'].get('amount',0)) for x in settlements if x['data'].get('disputed')); out('争议款冻结与释放',frozen,settlements)
-    return result
+    contract=latest(ev,'contract');hours,zones,ids=placement_hours(ev)
+    fee=int(contract['data'].get('fee',0)) if contract and hours>=int(contract['data'].get('min_hours',0)) else 0
+    incidents=rows(ev,'incident');sprays=rows(ev,'spray_notice')
+    incident=latest(ev,'incident')
+    responsibility='无事故'
+    if incident:
+        t=incident['data'].get('time',incident['event_time']);zone=incident['data'].get('zone','Z1')
+        responsibility='果园方' if any(s['data'].get('delivered') and s['data'].get('zone','Z1')==zone and s['data'].get('start',s['event_time'])<=t<s['data'].get('end',10**12) for s in sprays) else '待调查'
+    ledger={}
+    for row in sorted(rows(ev,'settlement'),key=lambda x:(x['event_time'],x['received_at'],x['id'])):
+        d=row['data'];key=d.get('dispute_id',row['id']);state=d.get('action','freeze' if d.get('disputed') else 'ignore')
+        if state=='freeze':ledger[key]=int(d.get('amount',0))
+        elif state=='release' and key in ledger and fee>=ledger[key]:ledger[key]=0
+    return [('合同最低覆盖结算',fee,ids+proof([contract])),('事故赔付责任裁定',responsibility,proof(incidents,sprays) or ids),('争议款冻结与释放',sum(ledger.values()),proof(rows(ev,'settlement')) or ids)]

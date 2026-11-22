@@ -31,7 +31,10 @@
         ],
         "isolated": true,
         "delivered": true,
-        "disputed": true
+        "disputed": true,
+        "zones": [
+          "Z1"
+        ]
       }
     },
     {
@@ -62,6 +65,10 @@
         "tags": [
           "T1",
           "T2"
+        ],
+        "window": [
+          1,
+          3
         ]
       }
     },
@@ -94,7 +101,8 @@
           "T1",
           "T2"
         ],
-        "delivered": true
+        "delivered": true,
+        "zone": "Z1"
       }
     }
   ]

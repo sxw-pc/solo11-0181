@@ -90,7 +90,9 @@
         "tags": [
           "T1",
           "T2"
-        ]
+        ],
+        "valid_from": 0,
+        "valid_to": 10
       }
     }
   ]

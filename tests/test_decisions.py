@@ -21,9 +21,9 @@ class BusinessDecisions(unittest.TestCase):
     def result(self,name): return report(self.db,'case-1')[name]['result']
     def test_spray_changes_fee_and_accident_responsibility(self):
         self.assertEqual(self.result('合同最低覆盖结算'),20)
-        self.add('spray_notice',{'delivered':True},91)
+        self.add('spray_notice',{'delivered':True,'zone':'Z1','start':1,'end':3},91)
         self.assertEqual(self.result('合同最低覆盖结算'),0)
-        self.add('incident',{'loss':1},92)
+        self.add('incident',{'loss':1,'time':2,'zone':'Z1'},92)
         self.assertEqual(self.result('事故赔付责任裁定'),'果园方')
     def test_health_change_removes_coverage(self):
         self.assertEqual(self.result('果园分区覆盖认定'),2)
@@ -32,3 +32,29 @@ class BusinessDecisions(unittest.TestCase):
     def test_dispute_freezes_payment(self):
         self.add('settlement',{'amount':13,'disputed':True},94)
         self.assertEqual(self.result('争议款冻结与释放'),13)
+    def test_partial_spray_intersects_bloom_window(self):
+        self.assertEqual(self.result('果园分区覆盖认定'),2)
+        self.add('spray_notice',{'delivered':True,'zone':'Z1','start':2,'end':3},95)
+        self.assertEqual(self.result('果园分区覆盖认定'),1)
+        self.assertEqual(self.result('合同最低覆盖结算'),0)
+    def test_replacement_overlap_is_not_double_billed(self):
+        self.add('placement',{'zone':'Z1','start':2,'end':3,'replacement':True,'replaces':'pollinate-placement-ok'},96)
+        self.assertEqual(self.result('驻场时段认定'),3)
+        self.assertEqual(self.result('果园分区覆盖认定'),2)
+        self.assertEqual(self.result('蜂箱替补额度分配'),'继承')
+    def test_dispute_release_is_idempotent_balance(self):
+        self.add('settlement',{'dispute_id':'D1','action':'freeze','amount':13},97)
+        self.assertEqual(self.result('争议款冻结与释放'),13)
+        self.add('settlement',{'dispute_id':'D1','action':'release'},98)
+        self.assertEqual(self.result('争议款冻结与释放'),0)
+    def test_release_waits_for_coverage_after_revision(self):
+        self.add('settlement',{'dispute_id':'D1','action':'freeze','amount':13},97)
+        self.add('spray_notice',{'delivered':True,'zone':'Z1','start':1,'end':3},99)
+        self.add('settlement',{'dispute_id':'D1','action':'release'},100)
+        self.assertEqual(self.result('合同最低覆盖结算'),0)
+        self.assertEqual(self.result('争议款冻结与释放'),13)
+    def test_late_delivery_and_expired_health_have_distinct_results(self):
+        self.add('spray_notice',{'delivered':True,'zone':'Z1','start':1,'end':3,'delivered_at':3},101)
+        self.assertEqual(self.result('果园分区覆盖认定'),2)
+        self.add('health_check',{'healthy':True,'valid_from':0,'valid_to':2},102)
+        self.assertEqual(self.result('果园分区覆盖认定'),1)
