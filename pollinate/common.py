@@ -39,13 +39,14 @@ def placement_hours(ev):
                     if x<a:next_cuts.append((x,min(y,a)))
                     if b<y:next_cuts.append((max(x,b),y))
             cuts=next_cuts
-        by_zone[zone].extend(cuts)
+        allocation=d.get('replaces') if d.get('replacement') else d.get('allocation',p['id'])
+        by_zone[(zone,allocation)].extend(cuts)
     # A replaced hive inherits one allocation. Union overlapping intervals to avoid double counting.
     result={}
-    for zone,intervals in by_zone.items():
+    for (zone,allocation),intervals in by_zone.items():
         merged=[]
         for a,b in sorted(intervals):
             if merged and a<=merged[-1][1]:merged[-1]=(merged[-1][0],max(b,merged[-1][1]))
             else:merged.append((a,b))
-        result[zone]=sum(b-a for a,b in merged)
+        result[zone]=result.get(zone,0)+sum(b-a for a,b in merged)
     return sum(result.values()),result,proof([health,bloom,orchard],placements,sprays)

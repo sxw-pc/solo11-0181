@@ -71,3 +71,6 @@ class BusinessDecisions(unittest.TestCase):
         self.assertEqual(self.result('果园分区覆盖认定'),2)
         self.assertEqual(self.result('争议款冻结与释放'),0)
 
+    def test_independent_hives_add_coverage(self):
+        self.add('placement',{'zone':'Z1','start':1,'end':3,'allocation':'independent-hive'},109)
+        self.assertEqual(self.result('果园分区覆盖认定'),4)
