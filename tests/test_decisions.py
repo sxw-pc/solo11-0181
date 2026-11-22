@@ -29,6 +29,7 @@ class BusinessDecisions(unittest.TestCase):
         self.assertEqual(self.result('果园分区覆盖认定'),2)
         self.add('health_check',{'healthy':False},93)
         self.assertEqual(self.result('果园分区覆盖认定'),0)
+        self.assertEqual(self.result('合同最低覆盖结算'),0)
     def test_dispute_freezes_payment(self):
         self.add('settlement',{'amount':13,'disputed':True},94)
         self.assertEqual(self.result('争议款冻结与释放'),13)
@@ -58,3 +59,15 @@ class BusinessDecisions(unittest.TestCase):
         self.assertEqual(self.result('果园分区覆盖认定'),2)
         self.add('health_check',{'healthy':True,'valid_from':0,'valid_to':2},102)
         self.assertEqual(self.result('果园分区覆盖认定'),1)
+    def test_bloom_replacement_dispute_release_path(self):
+        self.add('placement',{'zone':'Z1','start':2,'end':3,'replacement':True,'replaces':'pollinate-placement-ok'},103)
+        self.add('bloom_observation',{'window':[1,2]},104)
+        self.assertEqual(self.result('果园分区覆盖认定'),1)
+        self.add('settlement',{'dispute_id':'D2','action':'freeze','amount':13},105)
+        self.add('settlement',{'dispute_id':'D2','action':'release'},106)
+        self.assertEqual(self.result('争议款冻结与释放'),13)
+        self.add('bloom_observation',{'window':[1,3]},107)
+        self.add('settlement',{'dispute_id':'D2','action':'release'},108)
+        self.assertEqual(self.result('果园分区覆盖认定'),2)
+        self.assertEqual(self.result('争议款冻结与释放'),0)
+
