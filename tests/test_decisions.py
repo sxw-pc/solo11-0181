@@ -32,7 +32,10 @@ class BusinessDecisions(unittest.TestCase):
         self.assertEqual(self.result('合同最低覆盖结算'),0)
     def test_dispute_freezes_payment(self):
         self.add('settlement',{'amount':13,'disputed':True},94)
-        self.assertEqual(self.result('争议款冻结与释放'),13)
+        ledger=self.result('争议款冻结与释放')
+        self.assertEqual(ledger['reserved_total'],1300)
+        self.assertEqual(ledger['payable'],700)
+        self.assertEqual(ledger['shares']['D0']['status'],'reserved')
     def test_partial_spray_intersects_bloom_window(self):
         self.assertEqual(self.result('果园分区覆盖认定'),2)
         self.add('spray_notice',{'delivered':True,'zone':'Z1','start':2,'end':3},95)
@@ -45,15 +48,20 @@ class BusinessDecisions(unittest.TestCase):
         self.assertEqual(self.result('蜂箱替补额度分配'),'继承')
     def test_dispute_release_is_idempotent_balance(self):
         self.add('settlement',{'dispute_id':'D1','action':'freeze','amount':13},97)
-        self.assertEqual(self.result('争议款冻结与释放'),13)
+        self.assertEqual(self.result('争议款冻结与释放')['reserved_total'],1300)
         self.add('settlement',{'dispute_id':'D1','action':'release'},98)
-        self.assertEqual(self.result('争议款冻结与释放'),0)
+        ledger=self.result('争议款冻结与释放')
+        self.assertEqual(ledger['reserved_total'],0)
+        self.assertEqual(ledger['shares']['D1']['status'],'released')
     def test_release_waits_for_coverage_after_revision(self):
         self.add('settlement',{'dispute_id':'D1','action':'freeze','amount':13},97)
         self.add('spray_notice',{'delivered':True,'zone':'Z1','start':1,'end':3},99)
         self.add('settlement',{'dispute_id':'D1','action':'release'},100)
         self.assertEqual(self.result('合同最低覆盖结算'),0)
-        self.assertEqual(self.result('争议款冻结与释放'),13)
+        ledger=self.result('争议款冻结与释放')
+        self.assertEqual(ledger['reserved_total'],0)
+        self.assertEqual(ledger['shares']['D1']['status'],'revoked')
+        self.assertEqual(ledger['recoverable_total'],1300)
     def test_late_delivery_and_expired_health_have_distinct_results(self):
         self.add('spray_notice',{'delivered':True,'zone':'Z1','start':1,'end':3,'delivered_at':3},101)
         self.assertEqual(self.result('果园分区覆盖认定'),2)
@@ -65,11 +73,19 @@ class BusinessDecisions(unittest.TestCase):
         self.assertEqual(self.result('果园分区覆盖认定'),1)
         self.add('settlement',{'dispute_id':'D2','action':'freeze','amount':13},105)
         self.add('settlement',{'dispute_id':'D2','action':'release'},106)
-        self.assertEqual(self.result('争议款冻结与释放'),13)
+        # coverage is still short, so the freeze is not payable: it is revoked,
+        # not silently released, and the release is recorded as blocked
+        blocked=self.result('争议款冻结与释放')
+        self.assertEqual(blocked['reserved_total'],0)
+        self.assertEqual(blocked['shares']['D2']['status'],'revoked')
+        self.assertEqual(blocked['recoverable_total'],1300)
         self.add('bloom_observation',{'window':[1,3]},107)
+        restored=self.result('争议款冻结与释放')
+        self.assertEqual(restored['reserved_total'],1300)
+        self.assertEqual(restored['shares']['D2']['status'],'reserved')
         self.add('settlement',{'dispute_id':'D2','action':'release'},108)
         self.assertEqual(self.result('果园分区覆盖认定'),2)
-        self.assertEqual(self.result('争议款冻结与释放'),0)
+        self.assertEqual(self.result('争议款冻结与释放')['reserved_total'],0)
 
     def test_independent_hives_add_coverage(self):
         self.add('placement',{'zone':'Z1','start':1,'end':3,'allocation':'independent-hive'},109)

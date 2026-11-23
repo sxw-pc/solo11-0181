@@ -1,0 +1,43 @@
+{
+  "events": [
+    {
+      "id": "ledger-d1-freeze",
+      "kind": "settlement",
+      "subject": "ledger-1",
+      "event_time": 1,
+      "received_at": 32,
+      "data": {
+        "dispute_id": "D1",
+        "action": "freeze",
+        "amount": 12,
+        "protocol": "priority"
+      }
+    },
+    {
+      "id": "ledger-d2-freeze",
+      "kind": "settlement",
+      "subject": "ledger-1",
+      "event_time": 2,
+      "received_at": 33,
+      "data": {
+        "dispute_id": "D2",
+        "action": "freeze",
+        "amount": 12
+      }
+    },
+    {
+      "id": "ledger-late-spray",
+      "kind": "spray_notice",
+      "subject": "ledger-1",
+      "event_time": 40,
+      "received_at": 40,
+      "data": {
+        "delivered": true,
+        "delivered_at": 1,
+        "start": 1,
+        "end": 3,
+        "zone": "Z1"
+      }
+    }
+  ]
+}
