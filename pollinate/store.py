@@ -11,6 +11,15 @@ def connect(path):
     db.execute('CREATE TABLE IF NOT EXISTS rejection (id TEXT PRIMARY KEY, reason TEXT NOT NULL, payload TEXT NOT NULL)')
     db.execute('CREATE TABLE IF NOT EXISTS honey_blend (id TEXT PRIMARY KEY, hive_id TEXT NOT NULL, raw_json TEXT NOT NULL)')
     db.execute('CREATE TABLE IF NOT EXISTS honey_grade (blend_id TEXT PRIMARY KEY REFERENCES honey_blend(id), mean_ppm REAL NOT NULL, status TEXT NOT NULL)')
+    # Jar-level packaging subsystem. Raw logs and receipts are preserved
+    # verbatim; decisions and inventory states are versioned, never updated.
+    db.execute('CREATE TABLE IF NOT EXISTS fill_run (id TEXT PRIMARY KEY, blend_id TEXT NOT NULL REFERENCES honey_blend(id), machine TEXT NOT NULL, received_at INTEGER NOT NULL, raw_json TEXT NOT NULL)')
+    db.execute('CREATE TABLE IF NOT EXISTS fill_event (run_id TEXT NOT NULL REFERENCES fill_run(id), seq INTEGER NOT NULL, kind TEXT NOT NULL, valid INTEGER NOT NULL, data TEXT NOT NULL)')
+    db.execute('CREATE TABLE IF NOT EXISTS jar_origin (jar TEXT NOT NULL, run_id TEXT NOT NULL REFERENCES fill_run(id), blend_id TEXT NOT NULL, PRIMARY KEY (jar, run_id))')
+    db.execute('CREATE TABLE IF NOT EXISTS lab_report (id TEXT PRIMARY KEY, blend_id TEXT NOT NULL REFERENCES honey_blend(id), jar TEXT, kind TEXT NOT NULL, received_at INTEGER NOT NULL, raw_json TEXT NOT NULL)')
+    db.execute('CREATE TABLE IF NOT EXISTS jar_decision (jar TEXT NOT NULL, version INTEGER NOT NULL, blend_id TEXT NOT NULL, status TEXT NOT NULL, ppm REAL, basis TEXT NOT NULL, defects TEXT NOT NULL, evidence TEXT NOT NULL, PRIMARY KEY (jar, version))')
+    db.execute('CREATE TABLE IF NOT EXISTS jar_movement (jar TEXT NOT NULL, seq INTEGER NOT NULL, action TEXT NOT NULL, at INTEGER NOT NULL, note TEXT, PRIMARY KEY (jar, seq))')
+    db.execute('CREATE TABLE IF NOT EXISTS jar_inventory (jar TEXT NOT NULL, version INTEGER NOT NULL, state TEXT NOT NULL, location TEXT NOT NULL, quality TEXT NOT NULL, PRIMARY KEY (jar, version))')
     for kind in ENTITIES:
         db.execute(f'CREATE TABLE IF NOT EXISTS {kind} (id TEXT PRIMARY KEY REFERENCES evidence(id), subject TEXT NOT NULL, event_time INTEGER NOT NULL, payload TEXT NOT NULL)')
     db.commit()

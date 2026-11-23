@@ -1,0 +1,8 @@
+{
+ "report_id": "LAB-A-J2-REVOKE",
+ "blend_id": "B1",
+ "kind": "revocation",
+ "revokes": "LAB-A-J2",
+ "reason": "sample seal broken in transit",
+ "received_at": 211
+}

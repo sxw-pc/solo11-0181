@@ -1,0 +1,16 @@
+{
+ "blend_id": "B1",
+ "hive_id": "H1",
+ "components": [
+  {
+   "source": "A",
+   "kg": 10,
+   "ppm": 20
+  },
+  {
+   "source": "B",
+   "kg": 90,
+   "ppm": 0
+  }
+ ]
+}

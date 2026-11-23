@@ -1,0 +1,846 @@
+{
+ "run_id": "ALPHA-WEIGH-ERROR",
+ "blend_id": "B1",
+ "machine": "FILLER-1",
+ "received_at": 100,
+ "events": [
+  {
+   "seq": 1,
+   "kind": "valve",
+   "source": "A",
+   "sig": "320f6104861d68b187bb22f1c78eef42edb9643b37e00712b56ad852d6395725"
+  },
+  {
+   "seq": 2,
+   "kind": "jar",
+   "jar": "J1",
+   "sig": "108f940232f7e43fef33449310fa0f3fd4e5a9dfcc04a4b5c6dd2d0165388625"
+  },
+  {
+   "seq": 3,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J1",
+   "grams": 1000,
+   "sig": "12f67a2554e9a032c2171fb9e4501fcd95d9fe470ff22eef72fe0ddad1d2bb67"
+  },
+  {
+   "seq": 4,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J1",
+   "grams": 1000,
+   "sig": "f7a8ccd2e5328fa981f87fd4bf81a4597e1af06f9ef236e796d23845b7464ecc"
+  },
+  {
+   "seq": 5,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J1",
+   "grams": 1000,
+   "sig": "f3db9efc286c39d901f00a6890cc2d0ea2bae277d47702363ba0fd7825479f1f"
+  },
+  {
+   "seq": 6,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J1",
+   "grams": 1000,
+   "sig": "9cee97c85b26e4dc654f5d157201ec733103edd9479ad87a208b906987a6eb2a"
+  },
+  {
+   "seq": 7,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J1",
+   "grams": 1000,
+   "sig": "f183ec47110ce72c98fc2cd2008964e6dd7f11032e15226585ab42d3cf5c8b9b"
+  },
+  {
+   "seq": 8,
+   "kind": "jar",
+   "jar": "J2",
+   "sig": "1c577b09426e1fb06e4d35adaee49c0446df7d4c5d798f77cbe3a67e9557272e"
+  },
+  {
+   "seq": 9,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "30133c5305ac1b6b68c370fd73d09d8eac596cb180ee9726021c36348ffe8754"
+  },
+  {
+   "seq": 10,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a863f1ac4aed1e0f4f7fbda932f1b12d656c4f6a021554873f16fd72bf70c575"
+  },
+  {
+   "seq": 11,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "db9656cee12b4a2ac009e5c0dd6f4d41c13a472e4bdf4d2cffc6e4c5fac8bc9c"
+  },
+  {
+   "seq": 12,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "904d1be85efe239411856456420d1a4d933d7c964ee338d5007cc111a61ed550"
+  },
+  {
+   "seq": 13,
+   "kind": "pulse",
+   "source": "A",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "9b4ccc7e9fc94e7ed4f424439e7af4a45601c4ce58b12d81e68395f1cd782acb"
+  },
+  {
+   "seq": 14,
+   "kind": "valve",
+   "source": "B",
+   "sig": "2ce7afe5fe08e5468d9df3e9a8f54fd484b826e073e437a8ed0736c9bd56352c"
+  },
+  {
+   "seq": 15,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a879449795e911c9ddb17b64d8bcdf7131e3bb182bb17713ef624da24b1bbb9a"
+  },
+  {
+   "seq": 16,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "3ccadf8ce5c7ee0463e94b86377a3c1f9e98c0a962c36f9f142c2ea53a2ea48d"
+  },
+  {
+   "seq": 17,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "1e7af96f2ac3aa7d90a5dae7e033474be8033534f2307145771a0bcc4ecc5fa6"
+  },
+  {
+   "seq": 18,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "9fac884a313de7cd13c72185b74921483f268e87b18d615342f20beb003847c1"
+  },
+  {
+   "seq": 19,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a569c910eeace920d19c526adc7f89426641bc5baff465106f915f62a0a1ceea"
+  },
+  {
+   "seq": 20,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "564d1a3835d2de4e6d5cee8ccdb16b86df5d87dda3be24c1f07e0d04ef2af4ee"
+  },
+  {
+   "seq": 21,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "0c160cc3247a204f341d0503c70bb69faee8ac402691b6a3642879f0a0c2f775"
+  },
+  {
+   "seq": 22,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "1e649c9a96a53e9edbf79584ba536df2700a58006f1c591aa93f10dd927aa6cc"
+  },
+  {
+   "seq": 23,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "b83c094d9baa04ec3bfe5c5f5911cbf700a66688e020d668d7ddb032dba7d042"
+  },
+  {
+   "seq": 24,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "e8a1c383e45ccdcc3cf6d555e62120fbaa899b77d29a9904a477343ac1f82977"
+  },
+  {
+   "seq": 25,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "0f0956d310a640c30804f7f05eb0c33d8f1f13b0afacc0da5581f06bed4d12e6"
+  },
+  {
+   "seq": 26,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "c80a9d23f5b37729719140331ff8c1782a947332c980978e968833e418dc0019"
+  },
+  {
+   "seq": 27,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "8f20c88c95a6e9ee9b23c049f7e984223f43a3294da2a5d59db1bab719bbdeb4"
+  },
+  {
+   "seq": 28,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "d4015e2fbec71668dec61810d35e027da57a5dddd3eb1a4b9c436294a7d295bd"
+  },
+  {
+   "seq": 29,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "5ffba953d62ec490c3d16d3a27bf3d96a5411799c367c4acadf5d6b23547c8d4"
+  },
+  {
+   "seq": 30,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "1780239fac6bcb9790d886376c36a4bb66212b38907b1ba89aced26efa651c64"
+  },
+  {
+   "seq": 31,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "6d95fd2968ab9df36530f2a70f2a6b0ddebfd4354be0f10abc4211662f19eb40"
+  },
+  {
+   "seq": 32,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "817c65abd5668d6e2a68b4228edc5f6b4f63cb1dbe131aa11e73e967d4876982"
+  },
+  {
+   "seq": 33,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "535a32c7307b87d4ff64b6bf9708814b0e58cba9019618a36a643b9c4c156f36"
+  },
+  {
+   "seq": 34,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "8864afa6e70cae5b8b18b13c962c578a1ff8d38bdb9b3b767ff288ccfafc30f4"
+  },
+  {
+   "seq": 35,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "b3b27983c9cc6fc79bd61c4996ded464950f576c0f5f53c478d7a48072dd6fb5"
+  },
+  {
+   "seq": 36,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "e630c65c5c6274b673e13beec83f99db4fb7899e7815d044dfc4166ea7a1e910"
+  },
+  {
+   "seq": 37,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "ee1e35c2d9849a6f494d71138eda8883d5782215b952811cb6dd203086e37d58"
+  },
+  {
+   "seq": 38,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "2a3a03d0859b0e57dc53cc426810258d7a4f24c644ef1645a01a5fffbb62fe18"
+  },
+  {
+   "seq": 39,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "5677aabe02a96e897d285c1713905c948dd8200e9b8ddfd53a16b48ac7a72bf7"
+  },
+  {
+   "seq": 40,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "10d4319659e50f62a777593d2ad28375e096caccee52712220455d24e1d21d6b"
+  },
+  {
+   "seq": 41,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a157fedae1159d3d2d6ae0f7e64ecfd7e4d3b621b2d6cc44754369ab6c1e5299"
+  },
+  {
+   "seq": 42,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "4b90f23439dfedead9967a370ac8722d8bc3159ddb7af4c7fc679a62b2b55777"
+  },
+  {
+   "seq": 43,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "63f7192a6df9b47bb1c12456e157e1cf0cdccd26b14d51b72d78dcbf0e455fa8"
+  },
+  {
+   "seq": 44,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "891100c2ab1b9598bd6c8988ebe1709bb583a1b249a9a56ccadf2bb557f7635d"
+  },
+  {
+   "seq": 45,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "55bec08b9b6167a91d7f6db828bb12f8919d9564bc1010b3878922a02ff646fe"
+  },
+  {
+   "seq": 46,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "892f2ad402c760395d4b2b58be79d8b6081af16c20a1805c7779b7dcd17a3d3a"
+  },
+  {
+   "seq": 47,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "84288f53946171be2fa738f2904f57047083f3fcf72148ed39a04b3164ffbe4a"
+  },
+  {
+   "seq": 48,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "4576054adcac6b0cfacdc208b0ed9d674308f79b080991a6676647955c3f3e82"
+  },
+  {
+   "seq": 49,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "d56b629e7da8ffab3dbfbb3546145eb6dc3c059077409dea9ed200d6f8772680"
+  },
+  {
+   "seq": 50,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "accfd6c480b82b01a05c5ea2047d3e8b4557247e2c679e47b0457ab17347511d"
+  },
+  {
+   "seq": 51,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "622e5e4ea474769488fbb2593ee7f82e2d48ff51a8bdb5b9608467367e7f17df"
+  },
+  {
+   "seq": 52,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "277c161cda988334ac8a3ef490a51d54f1555bcfcfd48a67381e77f0313bccd1"
+  },
+  {
+   "seq": 53,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "6f64970012b84c855b98ce3cc5624b3452201161dd998f7899e81ce5031e3bef"
+  },
+  {
+   "seq": 54,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "1cda87d438cc4524883d997064ec6251bc199525fc3cfc82334185236e9f0029"
+  },
+  {
+   "seq": 55,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "86e9a47f1b98d7a80d485ff4b1ebecd1e97e842ce70573bfb16b3821522fb6e6"
+  },
+  {
+   "seq": 56,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "c8f2487cf7c3c9421aacc6373860b6317e315dcdf85ca29cf5f55dc01f0bc21d"
+  },
+  {
+   "seq": 57,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "39b81f614d7a39c6f0ce18f979d13b3ebec36117c720c82baea741131da0fe17"
+  },
+  {
+   "seq": 58,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "cd7bce71ecbba1e4d8dba5f01778d7f293965bcec424809bd6ccf78797fec09c"
+  },
+  {
+   "seq": 59,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "07e6db390b138a575448c445b08c58524b16922617525a76bf062335a03b8870"
+  },
+  {
+   "seq": 60,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "f3e58e88d9b9aa40acbc441838bfc2d6760ce0a8756ca270a58412320cbd78b3"
+  },
+  {
+   "seq": 61,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "f8cc95e9a92da71b2828057412aa722c191b390b48fcb09ecac616383249bd1d"
+  },
+  {
+   "seq": 62,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a85839210a10d2698e6872cfad763dcec338fb9cee2e9a7742238df07f212eb3"
+  },
+  {
+   "seq": 63,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "3780e312f6fc37c06bad102a4a22cd6385254f47334d48a0eb377b72a61fe524"
+  },
+  {
+   "seq": 64,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "8d4f6309b2321773bb03f473ba993af78634b78021f481f31e3df777257ca409"
+  },
+  {
+   "seq": 65,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "bc9e10876e91bf44288658f86aad33311df41d3a20bc18cf46a2a87fed1f10b8"
+  },
+  {
+   "seq": 66,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "6c52bd78d3f14ff131372e37edc302fc05344c5a9f1a32f411f60f378718b661"
+  },
+  {
+   "seq": 67,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "35cf7a48786c051f3bd8a49791cfbfdef2bb4c50524f5fefb50779564fd219cb"
+  },
+  {
+   "seq": 68,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "7aa2bbb24993312f4fa32755b14798b5f7564911959331e65aa877560d68723e"
+  },
+  {
+   "seq": 69,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "87ba6f3fdb0a77e18957cfb0729341b19b1f39006435e91a128b9a3848f1045f"
+  },
+  {
+   "seq": 70,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "5005737b828894bc96b1d6880fec003456f65c7860591583badbe6eba2ef15df"
+  },
+  {
+   "seq": 71,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "24fc686fdaedab2030dcb441b9cf3f5118c2b2a9225fd3d0023835b70befc1af"
+  },
+  {
+   "seq": 72,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "643d9bb3cc284d66bf0395d7fe6055c81048fb9296ca664431c0caba8c1ef57d"
+  },
+  {
+   "seq": 73,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "6b6610140add3e7117382e07280ef4af80a46e57fcd076ea1064fb80882ba54a"
+  },
+  {
+   "seq": 74,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "4a749db923618720f1c1674c5a262803765e9481c1f4a336fe4e1d85ca136965"
+  },
+  {
+   "seq": 75,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "ef3960d8cd544a0b6956efe942e62b40374f76d83ff55a210cd6c3701743476b"
+  },
+  {
+   "seq": 76,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "66a0266a1833687fdadafa7b64f63526a3bc332df1c66421f36a6d2ccd3959d9"
+  },
+  {
+   "seq": 77,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "dcfd3609ae6e4f8a8cb2c3cb6ec0f2866dc78865c2c529198acdd19c4a6f22be"
+  },
+  {
+   "seq": 78,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "c35af3601c29d452d03165adf38436dc6a5f600d1679e23eff9549a989c20ea5"
+  },
+  {
+   "seq": 79,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a869cdacc2ce9e060a6ab9c1c12d7412e834fb8633aecae48fdc5999edfac6ce"
+  },
+  {
+   "seq": 80,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a190a123f4044b82ca2288908f741925d8ccf5aab260cfad828d289dc7ace0c1"
+  },
+  {
+   "seq": 81,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "29c57e2bd5f6f28576c2c8a2aaa977e496bc5b59fd73ab09c272944d20464ae6"
+  },
+  {
+   "seq": 82,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "45685d054140e1d446d58b06bae1406e94caf514b9be05e096d85a9aa843c4bd"
+  },
+  {
+   "seq": 83,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "cce53da51242cd86e0f785e8c6c3ecf8c30aa11ebbaad984f2f41423b3097e14"
+  },
+  {
+   "seq": 84,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "a882f0a298e04c9f7275c96780ce6f4423461ee45ded2de50408f22c3925a4e0"
+  },
+  {
+   "seq": 85,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "bd5d90f589818368240b093ee105c736e33b7c91da5036bc5914e8ad03634764"
+  },
+  {
+   "seq": 86,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "6dd015062d9bd06023c3e0c654cbbd82119ff42a926dd88a5879b2d6bc29f33b"
+  },
+  {
+   "seq": 87,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "c1ae383fb15519453e47ca7c6e1d3c62fd03958bcdf3f5cd52145d7e036f5118"
+  },
+  {
+   "seq": 88,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "205f111ddbf4cabb873454298d0c6bb3e5171b415111bf9c6dcd907eba56f884"
+  },
+  {
+   "seq": 89,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "9c33c7d53f7a0a7a18f9441c3d1e527f6a6a584897e2b9d99393a3d235cdff62"
+  },
+  {
+   "seq": 90,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "50ca6995d4dd64f6fd4dad0cc75b7b34d0b82fc3602e500cd4a0e05521b4af4e"
+  },
+  {
+   "seq": 91,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "54e7a7139bdd5b58752e520361b77ad204d07fc519dc04c204feca2f1a83d3c1"
+  },
+  {
+   "seq": 92,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "8b47f4e1ea0584cd512de6f44a02f0c99e9eec0914724862a60c4f94239a3706"
+  },
+  {
+   "seq": 93,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "13c5bfd7d2bb0398b62664de3885dbb5f70911743d76dae3994939ed3b6b3569"
+  },
+  {
+   "seq": 94,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "c7c649ad30de19caec172ff0f946f5bdd6b1627b8eaa01fe05ee82c46bb4d4ca"
+  },
+  {
+   "seq": 95,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "e2b2e1d145f02c8f2b91adc839ecc8758e70702c2c7c2d29bc6261437892fae8"
+  },
+  {
+   "seq": 96,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "fc575d027db5fa7f1f8e7dd618ed423d7cac5cafc85abbf1f31cd0570f72c9a5"
+  },
+  {
+   "seq": 97,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "2ede805ae1ae58de1f90b25f8a7a64c4644b15d051899c95c4f12b48f36554fe"
+  },
+  {
+   "seq": 98,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "7b2575de2a79636ecfacaf52c40cadb47bd03e53872a495b07544b03dc03f5e0"
+  },
+  {
+   "seq": 99,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "7cc192173c0301f2ac5d14a22c9371fba2a152acb4372d3a0942b356304063c4"
+  },
+  {
+   "seq": 100,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "f759c3032f7815e95d0bad8ad6a6ccc5979f262c796e7d6c8cd2f5243c6e881d"
+  },
+  {
+   "seq": 101,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "b9d39dad5e85193d312f9629700fb5255a2e113ae2b47ab78b527ec279efd6fb"
+  },
+  {
+   "seq": 102,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "694809e606f26ff5a764d8f89b772f1a1b4e073f9eefd0c40c3530739a99f7a8"
+  },
+  {
+   "seq": 103,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "ea0b8d8297b16bcd372e965104516cf997ae002f90d28e7c49b24e0bef12c43b"
+  },
+  {
+   "seq": 104,
+   "kind": "pulse",
+   "source": "B",
+   "jar": "J2",
+   "grams": 1000,
+   "sig": "6a842f08153c220dc28737869beedd3ebf9a84591642fe3134282fbbaac9434f"
+  },
+  {
+   "seq": 105,
+   "kind": "weigh",
+   "jar": "J1",
+   "grams": 5000,
+   "sig": "2fd82d92a22f7094f867703886e3b9f719a4fed3320a2e815b5924e8fe4c229b"
+  },
+  {
+   "seq": 106,
+   "kind": "weigh",
+   "jar": "J2",
+   "grams": 96000,
+   "sig": "13c9261966a1101ad09c13b661d8c208e7bb16b49f11ea538d88a1307f3ed467"
+  }
+ ]
+}

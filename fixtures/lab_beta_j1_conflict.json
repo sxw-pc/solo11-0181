@@ -1,0 +1,13 @@
+{
+ "report_id": "LAB-B-J1",
+ "blend_id": "B1",
+ "kind": "result",
+ "jar": "J1",
+ "lab": "COOP-LAB",
+ "received_at": 200,
+ "sample": {
+  "sealed": true,
+  "mass_g": 250,
+  "residue_ug": 6250
+ }
+}
