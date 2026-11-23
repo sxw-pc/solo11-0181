@@ -1,0 +1,128 @@
+{
+  "case": "L2",
+  "secret": "l2-hmac-secret",
+  "description": "W1 桥票 1800kg 蜂箱货物；前轴 x=0、后轴 x=3；三托盘合成重心 x=2.7；每轴货物分担上限 1200kg；急刹 0.35g、重心高 1.2m",
+  "ticket": {
+    "id": "W1",
+    "gross_kg": 4000,
+    "tare_kg": 2200,
+    "signature": "04f5fe703ed476b3f116d74edf1e87941ef5aa3f8d272066b0655761ca6002a0"
+  },
+  "shared_events": [
+    {
+      "event_id": "L2-config-1",
+      "received_at": 20,
+      "kind": "config",
+      "data": {
+        "axle_limit_kg": 1200
+      }
+    },
+    {
+      "event_id": "L2-geo-1",
+      "received_at": 21,
+      "kind": "geometry",
+      "data": {
+        "front_x": 0.0,
+        "rear_x": 3.0
+      }
+    },
+    {
+      "event_id": "L2-pallets-1",
+      "received_at": 22,
+      "kind": "pallets",
+      "data": {
+        "pallets": [
+          {
+            "id": "P1",
+            "kg": 600,
+            "x_m": 2.4,
+            "x_tol_m": 0.0,
+            "boxes": 20
+          },
+          {
+            "id": "P2",
+            "kg": 600,
+            "x_m": 2.7,
+            "x_tol_m": 0.0,
+            "boxes": 20
+          },
+          {
+            "id": "P3",
+            "kg": 600,
+            "x_m": 3.0,
+            "x_tol_m": 0.0,
+            "boxes": 20
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "L2-brake-1",
+      "received_at": 23,
+      "kind": "brake",
+      "data": {
+        "condition_id": "B1",
+        "cg_height_m": 1.2,
+        "decel_g": 0.35
+      }
+    }
+  ],
+  "route_a_events": [
+    {
+      "event_id": "L2-A-route-1",
+      "received_at": 30,
+      "kind": "route_a",
+      "data": {
+        "positions": {
+          "P1": 0.5,
+          "P2": 1.5,
+          "P3": 2.5
+        }
+      }
+    },
+    {
+      "event_id": "L2-A-lash-1",
+      "received_at": 31,
+      "kind": "lashing",
+      "data": {
+        "done": true
+      }
+    },
+    {
+      "event_id": "L2-A-reweigh-1",
+      "received_at": 32,
+      "kind": "reweigh",
+      "data": {
+        "reweigh_id": "RW1",
+        "gross_kg": 4000,
+        "tare_kg": 2200
+      }
+    }
+  ],
+  "route_b_events": [
+    {
+      "event_id": "L2-B-route-1",
+      "received_at": 40,
+      "kind": "route_b",
+      "data": {
+        "pallet_ids": [
+          "P3"
+        ],
+        "to_vehicle": "V2"
+      }
+    },
+    {
+      "event_id": "L2-B-handover-1",
+      "received_at": 41,
+      "kind": "handover",
+      "data": {
+        "handover_id": "H1",
+        "to_vehicle": "V2",
+        "pallet_ids": [
+          "P3"
+        ],
+        "kg": 600
+      }
+    }
+  ]
+}
