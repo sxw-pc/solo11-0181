@@ -19,7 +19,7 @@ def run_fixture(db, path, allowed=None):
 
 def main(argv=None):
     p=argparse.ArgumentParser()
-    p.add_argument('command',choices=['init','demo','report','replay']+[m.COMMAND for m in MODULES])
+    p.add_argument('command',choices=['init','demo','ingest','report','replay']+[m.COMMAND for m in MODULES])
     p.add_argument('--db',default='work.db')
     p.add_argument('--fixture')
     p.add_argument('--subject',default='case-1')
@@ -39,6 +39,11 @@ def main(argv=None):
         out={}
         for module in MODULES:
             out.update(run_fixture(db,module.NORMAL))
+    elif args.command=='ingest':
+        # cross-subsystem fixture (joint-spray scenario): load every kind and
+        # recompute all surfaces so dispatch and settle share one evidence set
+        if not args.fixture: raise SystemExit('ingest requires --fixture')
+        out=run_fixture(db,args.fixture)
     else:
         module=next(m for m in MODULES if m.COMMAND==args.command)
         out=run_fixture(db,args.fixture or module.NORMAL,set(module.KINDS))

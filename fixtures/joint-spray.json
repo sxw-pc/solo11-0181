@@ -1,0 +1,238 @@
+{
+  "events": [
+    {
+      "id": "joint-hive-h1",
+      "kind": "hive",
+      "subject": "joint-1",
+      "event_time": 0,
+      "received_at": 0,
+      "data": {
+        "hive_id": "H1",
+        "healthy": true
+      }
+    },
+    {
+      "id": "joint-placement-h1",
+      "kind": "placement",
+      "subject": "joint-1",
+      "event_time": 1,
+      "received_at": 1,
+      "data": {
+        "hive": "H1",
+        "zone": "Z1",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "id": "joint-health-dead",
+      "kind": "health_check",
+      "subject": "joint-1",
+      "event_time": 5,
+      "received_at": 5,
+      "data": {
+        "hive": "H1",
+        "healthy": false,
+        "dead": true,
+        "death_time": 2,
+        "zone": "Z1",
+        "valid_from": 0,
+        "valid_to": 4
+      }
+    },
+    {
+      "id": "joint-incident-h1",
+      "kind": "incident",
+      "subject": "joint-1",
+      "event_time": 6,
+      "received_at": 6,
+      "data": {
+        "hive": "H1",
+        "time": 2,
+        "zone": "Z1",
+        "death_time": 2,
+        "dead": true,
+        "claim_amount": 13
+      }
+    },
+    {
+      "id": "joint-orchard-a",
+      "kind": "orchard",
+      "subject": "joint-1",
+      "event_time": 10,
+      "received_at": 10,
+      "data": {
+        "owner": "A",
+        "zone": "Z1",
+        "zones": [
+          "Z1"
+        ]
+      }
+    },
+    {
+      "id": "joint-orchard-b",
+      "kind": "orchard",
+      "subject": "joint-1",
+      "event_time": 10,
+      "received_at": 10,
+      "data": {
+        "owner": "B",
+        "zone": "Z2",
+        "zones": [
+          "Z2"
+        ]
+      }
+    },
+    {
+      "id": "joint-threshold",
+      "kind": "toxicity_profile",
+      "subject": "joint-1",
+      "event_time": 11,
+      "received_at": 11,
+      "data": {
+        "substance": "X",
+        "threshold": 10,
+        "threshold_source": "LAB-TOX-2026-11",
+        "combine": "additive",
+        "window": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "id": "joint-spray-a",
+      "kind": "spray_notice",
+      "subject": "joint-1",
+      "event_time": 12,
+      "received_at": 12,
+      "data": {
+        "batch_id": "BATCH-A",
+        "orchard": "A",
+        "entity": "A",
+        "zone": "Z1",
+        "start": 1,
+        "end": 3,
+        "delivered": true,
+        "delivered_at": 1,
+        "dose": 7,
+        "dose_range": [
+          7,
+          7
+        ],
+        "substance": "X",
+        "sample_id": "SAMPLE-A-01",
+        "calibration_id": "CAL-A-01",
+        "threshold_id": "LAB-TOX-2026-11",
+        "applied_dose": 14,
+        "calibration_factor": 0.5
+      }
+    },
+    {
+      "id": "joint-spray-b",
+      "kind": "spray_notice",
+      "subject": "joint-1",
+      "event_time": 13,
+      "received_at": 13,
+      "data": {
+        "batch_id": "BATCH-B",
+        "orchard": "B",
+        "entity": "B",
+        "zone": "Z2",
+        "start": 1,
+        "end": 3,
+        "delivered": true,
+        "delivered_at": 1,
+        "dose": 6,
+        "dose_range": [
+          6,
+          6
+        ],
+        "substance": "X",
+        "sample_id": "SAMPLE-B-01",
+        "calibration_id": "CAL-B-01",
+        "drift_id": "DRIFT-B-01",
+        "threshold_id": "LAB-TOX-2026-11",
+        "applied_dose": 12,
+        "calibration_factor": 1.0,
+        "drift_factor": 0.5
+      }
+    },
+    {
+      "id": "joint-agreement-necessary",
+      "kind": "contract",
+      "subject": "joint-1",
+      "event_time": 20,
+      "received_at": 20,
+      "data": {
+        "action": "agreement",
+        "protocol": "joint_necessary",
+        "signed": true,
+        "signed_by": [
+          "A",
+          "B"
+        ],
+        "approved_at": 19,
+        "claim_amount": 13,
+        "min_hours": 0,
+        "fee": 0
+      }
+    },
+    {
+      "id": "joint-agreement-several",
+      "kind": "contract",
+      "subject": "joint-1",
+      "event_time": 21,
+      "received_at": 21,
+      "data": {
+        "action": "agreement",
+        "protocol": "joint_several",
+        "signed": true,
+        "signed_by": [
+          "A",
+          "B"
+        ],
+        "approved_at": 20,
+        "claim_amount": 13,
+        "min_hours": 0,
+        "fee": 0
+      }
+    },
+    {
+      "id": "joint-freeze-a",
+      "kind": "settlement",
+      "subject": "joint-1",
+      "event_time": 22,
+      "received_at": 22,
+      "data": {
+        "action": "freeze",
+        "dispute_id": "joint-necessary:joint-incident-h1:A",
+        "amount": 7
+      }
+    },
+    {
+      "id": "joint-freeze-b",
+      "kind": "settlement",
+      "subject": "joint-1",
+      "event_time": 23,
+      "received_at": 23,
+      "data": {
+        "action": "freeze",
+        "dispute_id": "joint-necessary:joint-incident-h1:B",
+        "amount": 6
+      }
+    },
+    {
+      "id": "joint-pay-a",
+      "kind": "settlement",
+      "subject": "joint-1",
+      "event_time": 24,
+      "received_at": 24,
+      "data": {
+        "action": "pay",
+        "dispute_id": "joint-necessary:joint-incident-h1:A",
+        "amount": 7
+      }
+    }
+  ]
+}
