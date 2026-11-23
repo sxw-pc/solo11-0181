@@ -11,6 +11,26 @@ def connect(path):
     db.execute('CREATE TABLE IF NOT EXISTS rejection (id TEXT PRIMARY KEY, reason TEXT NOT NULL, payload TEXT NOT NULL)')
     db.execute('CREATE TABLE IF NOT EXISTS field_day (id TEXT PRIMARY KEY, raw_json TEXT NOT NULL)')
     db.execute('CREATE TABLE IF NOT EXISTS field_roster (day_id TEXT PRIMARY KEY REFERENCES field_day(id), assignments_json TEXT NOT NULL)')
+    # Publication journal: one row per publication attempt. State moves
+    # staged -> active (or vanished via rollback). Versions are allocated per
+    # publish_dir and never reused; the on-disk journal under
+    # <publish_dir>/.publish/journal is the durable counterpart that survives
+    # an SQLite rollback or a rebuilt database.
+    db.execute('CREATE TABLE IF NOT EXISTS roster_publish ('
+        'publish_dir TEXT NOT NULL, version INTEGER NOT NULL, day_id TEXT NOT NULL, '
+        'mode TEXT NOT NULL, state TEXT NOT NULL, content_hash TEXT NOT NULL, '
+        'workers_hash TEXT NOT NULL, jobs_hash TEXT NOT NULL, '
+        'assignments_json TEXT NOT NULL, revoked_ids TEXT NOT NULL, '
+        'created_at INTEGER NOT NULL, committed_at INTEGER, '
+        'PRIMARY KEY(publish_dir,version))')
+    # Append-only acknowledgements. A receipt records that a field party actually
+    # observed a complete version. Rows are never updated or deleted, so the max
+    # observed version is durable evidence that an older version can never be
+    # presented as current again.
+    db.execute('CREATE TABLE IF NOT EXISTS roster_receipt ('
+        'publish_dir TEXT NOT NULL, version INTEGER NOT NULL, party TEXT NOT NULL, '
+        'content_hash TEXT NOT NULL, received_at INTEGER NOT NULL, '
+        'PRIMARY KEY(publish_dir,version,party))')
     for kind in ENTITIES:
         db.execute(f'CREATE TABLE IF NOT EXISTS {kind} (id TEXT PRIMARY KEY REFERENCES evidence(id), subject TEXT NOT NULL, event_time INTEGER NOT NULL, payload TEXT NOT NULL)')
     db.commit()
