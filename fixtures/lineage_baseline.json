@@ -1,0 +1,106 @@
+{
+  "events": [
+    {
+      "id": "seal-ra",
+      "kind": "seal_domain",
+      "subject": "case-queen",
+      "event_time": 100,
+      "received_at": 100,
+      "data": {"registry": "RA", "prefixes": ["SRA-"]}
+    },
+    {
+      "id": "seal-rb",
+      "kind": "seal_domain",
+      "subject": "case-queen",
+      "event_time": 101,
+      "received_at": 101,
+      "data": {"registry": "RB", "prefixes": ["SRB-"]}
+    },
+    {
+      "id": "ra-g1",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 110,
+      "received_at": 110,
+      "data": {"registry": "RA", "cert_no": "C-G1", "local_code": "G1", "sex": "F", "parents": []}
+    },
+    {
+      "id": "ra-f1",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 111,
+      "received_at": 111,
+      "data": {"registry": "RA", "cert_no": "C-F1", "local_code": "F1", "sex": "M", "parents": []}
+    },
+    {
+      "id": "ra-m1",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 112,
+      "received_at": 112,
+      "data": {
+        "registry": "RA", "cert_no": "C-M1", "local_code": "M1", "sex": "F",
+        "parents": [
+          {"registry": "RA", "cert_no": "C-G1", "gap_min": 1}
+        ]
+      }
+    },
+    {
+      "id": "ra-q1",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 113,
+      "received_at": 113,
+      "data": {
+        "registry": "RA", "cert_no": "C-Q1", "local_code": "Q1", "sex": "F",
+        "parents": [
+          {"registry": "RA", "cert_no": "C-M1", "gap_min": 1},
+          {"registry": "RA", "cert_no": "C-F1", "gap_min": 1}
+        ]
+      }
+    },
+    {
+      "id": "rb-g1",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 120,
+      "received_at": 120,
+      "data": {"registry": "RB", "cert_no": "C-G1B", "local_code": "G1", "sex": "F", "parents": []}
+    },
+    {
+      "id": "rb-f2",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 121,
+      "received_at": 121,
+      "data": {"registry": "RB", "cert_no": "C-F2", "local_code": "F2", "sex": "M", "parents": []}
+    },
+    {
+      "id": "rb-m2",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 122,
+      "received_at": 122,
+      "data": {
+        "registry": "RB", "cert_no": "C-M2", "local_code": "M2", "sex": "F",
+        "parents": [
+          {"registry": "RB", "cert_no": "C-G1B", "gap_min": 1}
+        ]
+      }
+    },
+    {
+      "id": "rb-d1",
+      "kind": "paper_record",
+      "subject": "case-queen",
+      "event_time": 123,
+      "received_at": 123,
+      "data": {
+        "registry": "RB", "cert_no": "C-D1", "local_code": "D1", "sex": "M",
+        "parents": [
+          {"registry": "RB", "cert_no": "C-M2", "gap_min": 1},
+          {"registry": "RB", "cert_no": "C-F2", "gap_min": 1}
+        ]
+      }
+    }
+  ]
+}

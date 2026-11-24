@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "id": "genetic-weak-locus",
+      "kind": "genetic_receipt",
+      "subject": "case-queen",
+      "event_time": 240,
+      "received_at": 241,
+      "data": {
+        "registry_a": "RA",
+        "cert_a": "C-G1",
+        "registry_b": "RB",
+        "cert_b": "C-G1B",
+        "score": 0.99,
+        "panel": {
+          "name": "single-locus-panel",
+          "marker_count": 1,
+          "coverage": 0.05,
+          "threshold": 0.8,
+          "threshold_source": "unattributed field note",
+          "calibrated": false
+        }
+      }
+    }
+  ]
+}

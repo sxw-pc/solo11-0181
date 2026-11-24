@@ -1,0 +1,20 @@
+{
+  "events": [
+    {
+      "id": "gap-m1-g1",
+      "kind": "page_gap",
+      "subject": "case-queen",
+      "event_time": 230,
+      "received_at": 231,
+      "data": {
+        "registry": "RA",
+        "cert_no": "C-M1",
+        "parent_registry": "RA",
+        "parent_cert": "C-G1",
+        "gap_min": 1,
+        "gap_max": null,
+        "note": "paper page between M1 and G1 burned; only an unbounded reachability range survives"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "id": "seal-ra",
+      "kind": "seal_domain",
+      "subject": "case-cycle",
+      "event_time": 100,
+      "received_at": 100,
+      "data": {"registry": "RA", "prefixes": ["SRA-"]}
+    },
+    {
+      "id": "cy-a",
+      "kind": "paper_record",
+      "subject": "case-cycle",
+      "event_time": 110,
+      "received_at": 110,
+      "data": {
+        "registry": "RA", "cert_no": "CY-A", "local_code": "A",
+        "parents": [{"registry": "RA", "cert_no": "CY-B", "gap_min": 1}]
+      }
+    },
+    {
+      "id": "cy-b",
+      "kind": "paper_record",
+      "subject": "case-cycle",
+      "event_time": 111,
+      "received_at": 111,
+      "data": {
+        "registry": "RA", "cert_no": "CY-B", "local_code": "B",
+        "parents": [{"registry": "RA", "cert_no": "CY-A", "gap_min": 1}]
+      }
+    },
+    {
+      "id": "cy-self",
+      "kind": "paper_record",
+      "subject": "case-cycle",
+      "event_time": 112,
+      "received_at": 112,
+      "data": {
+        "registry": "RA", "cert_no": "CY-C", "local_code": "C",
+        "parents": [{"registry": "RA", "cert_no": "CY-C", "gap_min": 1}]
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "id": "genetic-g1-split",
+      "kind": "genetic_receipt",
+      "subject": "case-queen",
+      "event_time": 220,
+      "received_at": 222,
+      "data": {
+        "registry_a": "RA",
+        "cert_a": "C-G1",
+        "registry_b": "RB",
+        "cert_b": "C-G1B",
+        "score": 0.18,
+        "panel": {
+          "name": "hd-panel-2000",
+          "marker_count": 2000,
+          "coverage": 0.94,
+          "threshold": 0.8,
+          "threshold_source": "lab-2026-calibration-bulletin-3",
+          "calibrated": true
+        }
+      }
+    }
+  ]
+}

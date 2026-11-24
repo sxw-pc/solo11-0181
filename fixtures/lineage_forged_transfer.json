@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "id": "transfer-g1-forged",
+      "kind": "transfer_receipt",
+      "subject": "case-queen",
+      "event_time": 210,
+      "received_at": 211,
+      "data": {
+        "from_registry": "RA",
+        "from_cert": "C-G1",
+        "to_registry": "RB",
+        "to_cert": "C-G1B",
+        "seal_no": "FORGED-99",
+        "note": "seal number is outside RA's declared SRA- domain"
+      }
+    }
+  ]
+}

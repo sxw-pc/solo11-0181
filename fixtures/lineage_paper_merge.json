@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "id": "transfer-g1",
+      "kind": "transfer_receipt",
+      "subject": "case-queen",
+      "event_time": 200,
+      "received_at": 201,
+      "data": {
+        "from_registry": "RA",
+        "from_cert": "C-G1",
+        "to_registry": "RB",
+        "to_cert": "C-G1B",
+        "seal_no": "SRA-7741",
+        "note": "paper certificate chain: original cert, transfer signoff, parentage on both ends"
+      }
+    }
+  ]
+}
